@@ -1,0 +1,70 @@
+init(){
+                    let that=this;
+                    this.initdom();
+                    window.onresize = function () {//据宽度改变重载dom
+                        that.initdom();
+                    
+                        
+                      setTimeout(function(){
+                        if(null!=that.chart1){
+                            that.chart1.dispose();
+                        }
+                        if(null!=that.chart2){
+                            that.chart2.dispose();
+                        }
+                        if(null!=that.chart3){
+                            that.chart3.dispose();
+                        }
+                        if(null!=that.chart4){
+                            that.chart4.dispose();
+                        }
+                        if(null!=that.chart5){
+                            that.chart5.dispose();
+                        }
+                        // if(null!=that.chart6){
+                        //     that.chart6.dispose();
+                        // }
+                        that.initchart();
+                       
+                      },200);
+                     
+                        
+                    }
+                 
+                     
+                     this.keti='';
+                      this.ketiList=[];   
+                       this.querySubjectAll();   
+                        this.initchart();
+                     
+                  },
+                  initchart(){
+                        this.chart1 = echarts.init(document.getElementById('chart1'));  
+                        this.chart2 = echarts.init(document.getElementById('chart2'));
+                        this.chart3 = echarts.init(document.getElementById('chart3'));
+                        this.chart4 = echarts.init(document.getElementById('chart4'));      
+                        this.chart5 = echarts.init(document.getElementById('chart5'));
+                        // this.chart6 = echarts.init(document.getElementById('chart6'));
+                         
+                        this.chart1.setOption(this.option1);
+                        this.chart2.setOption(this.option2);
+                        this.chart3.setOption(this.option3);
+                        this.chart4.setOption(this.option4);
+                        this.chart5.setOption(this.option5);
+                        // this.chart6.setOption(this.option6);
+
+                  },
+                   initdom() {//可按宽高比缩放的写法
+
+
+          
+                  $('#chart1').css("height",$('#chart1').width()*3/5);
+                  $('#chart2').css("height",$('#chart1').width()*3/5);
+                  $('#chart3').css("height",$('#chart1').width()*3/5);
+                  $('#chart4').css("height",$('#chart1').width()*3/5);
+                  $('#chart5').css("height",$('#chart1').width()*3/5);
+                  $('#chart6').css("height",$('#chart1').width()*3/5);
+                  $('.chart_row').css("height",$('#chart1').width()*3/5);
+
+
+              }
